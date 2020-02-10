@@ -29,7 +29,9 @@ print(LetterChanges(input()))
 "Argument goes here z"
 Bshvnfou hpft ifsf z
 '''
+##############################################################
 
+# Task 2
 '''
 Given an array ‘A’ of sorted integers and another non negative integer k, find if there exists 2 indices i and j such that A[i] - A[j] = k, i != j.
 
@@ -47,3 +49,35 @@ def diffPossible(self, A, B):
 	            if (A[i] - A[j] == B):
 	                return 1
         return 0
+
+##############################################################
+
+# Task 3
+
+'''
+Given three sorted arrays A, B and Cof not necessarily same sizes.
+
+Calculate the minimum absolute difference between the maximum and minimum number from the triplet a, b, c such that a, b, c belongs arrays A, B, C respectively.
+i.e. minimize | max(a,b,c) - min(a,b,c) |.
+
+Example :
+
+Input:
+
+A : [ 1, 4, 5, 8, 10 ]
+B : [ 6, 9, 15 ]
+C : [ 2, 3, 6, 6 ]
+Output: 1
+
+'''
+
+
+def solve(A, B, C):
+        min_diff = abs(max(A[0], B[0], C[0]) - min(A[0], B[0], C[0]))
+        for a in A:
+            for b in B:
+                for c in C:
+                    if abs(max(a, b, c) - min(a, b, c)) < min_diff:
+                        min_diff = abs(max(a, b, c) - min(a, b, c))
+                    if min_diff == 0: return 0
+        return min_diff
